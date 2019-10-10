@@ -3,7 +3,8 @@
     "pages/home/index",
     "pages/cate/index",
     "pages/my/index",
-    "pages/cart/index"
+    "pages/cart/index",
+    "components/search-bar/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -16,8 +17,8 @@
       {
         "pagePath": "pages/home/index",
         "text": "首页",
-        "iconPath":"assets/imgs/home-1.png",
-        "selectedIconPath":"assets/imgs/home-2.png"
+        "iconPath": "assets/imgs/home-1.png",
+        "selectedIconPath": "assets/imgs/home-2.png"
       },
       {
         "pagePath": "pages/cate/index",

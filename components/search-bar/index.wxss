@@ -1,5 +1,5 @@
-/* home/index.wxss */
-/* .search {
+/* components/search-bar/index.wxss */
+.search {
   background-color: #ff2d4a;
   padding: 20px;
 }
@@ -10,4 +10,4 @@
 }
 .search .search-item icon {
   vertical-align: middle;
-} */
+}

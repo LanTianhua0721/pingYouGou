@@ -1,7 +1,10 @@
 <!--home/index.wxml-->
-<view class="search">
+<!-- <view class="search">
   <view class="search-item">
     <icon type="search"></icon>
     搜索
   </view>
-</view>
+</view> -->
+
+<!-- 顶部搜索设置 -->
+<search-bar></search-bar>
