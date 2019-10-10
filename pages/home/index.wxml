@@ -1,2 +1,7 @@
 <!--home/index.wxml-->
-<text>home/index.wxml</text>
+<view class="search">
+  <view class="search-item">
+    <icon type="search"></icon>
+    搜索
+  </view>
+</view>
