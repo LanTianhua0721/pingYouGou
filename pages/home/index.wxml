@@ -11,23 +11,14 @@
 
 <!-- 轮播器设置 -->
 <swiper indicator-dots="ture">
-  <swiper-item wx:key='{{index}}' wx:for='{{swiperData}}' >
+  <swiper-item wx:key='{{index}}' wx:for='{{swiperData}}' autoplay='{{autoplay}}' duration='{{duration}}' interval='{{interval}}'>
     <image src = "{{item.image_src}}" >
     </image>
   </swiper-item>
 </swiper>
 
 <view class="menu">
-  <view class="menu-item">
-    <image src="https://www.ehomespace.com/pyg/icon_index_nav_4@2x.png"></image>
-  </view>
-  <view class="menu-item">
-    <image src="https://www.ehomespace.com/pyg/icon_index_nav_3@2x.png"></image>
-  </view>
-  <view class="menu-item">
-    <image src="https://www.ehomespace.com/pyg/icon_index_nav_2@2x.png"></image>
-  </view>
-  <view class="menu-item">
-    <image src="https://www.ehomespace.com/pyg/icon_index_nav_1@2x.png"></image>
+  <view wx:key='{{index}}' wx:for='{{catiData}}' class="menu-item">
+    <image src="{{item.image_src}}"></image>
   </view>
 </view>

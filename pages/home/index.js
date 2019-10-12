@@ -1,4 +1,7 @@
 // home/index.js
+
+//调用
+import ZhenxinRequest from '../../utils/request.js';
 Page({
 
   /**
@@ -6,35 +9,52 @@ Page({
    */
   data: {
     swiperData:[],
-    catiData:[]
+    catiData:[],
+    autoplay: true,
+    duration: 2000,
+    interval: 3000,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    //调用轮播器的接口数据
-    wx.request({
-      url: 'https://www.ehomespace.com/api/public/v1/home/swiperdata',
-      success:(res) => {
-        console.log(res.data.message);
+    // //调用轮播器的接口数据
+    // wx.request({
+    //   url: 'https://www.ehomespace.com/api/public/v1/home/swiperdata',
+    //   success:(res) => {
+    //     console.log(res.data.message);
 
-        this.setData({
-          swiperData: res.data.message
-        })
-      }
+    //     this.setData({
+    //       swiperData: res.data.message
+    //     })
+    //   }
+    // })
+
+  //   // 调用分类接口数据
+  //   wx.request({
+  //     url: 'https://www.ehomespace.com/api/public/v1/home/catitems',
+  //     success: (res) => {
+  //       console.log(res.data.message);
+
+  //       this.setData({
+  //         catiData: res.data.message
+  //       })
+  //     }
+  //   })
+
+    ZhenxinRequest('home/swiperdata').then(res=>{
+      console.log(res.data.message);
+      this .setData({
+        swiperData: res.data.message
+      })
     })
 
-    // 调用分类接口数据
-    wx.request({
-      url: 'https://www.ehomespace.com/api/public/v1/home/catidata',
-      success: (res) => {
-        console.log(res.data.message);
-
-        this.setData({
-          catiData: res.data.message
-        })
-      }
+    ZhenxinRequest('home/catitems').then(res => {
+      console.log(res.data.message);
+      this.setData({
+        catiData: res.data.message
+      })
     })
   },
 
