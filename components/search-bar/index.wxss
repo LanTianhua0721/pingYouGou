@@ -1,4 +1,6 @@
 /* components/search-bar/index.wxss */
+
+/* 搜索框样式 */
 .search {
   background-color: #ff2d4a;
   padding: 15px;

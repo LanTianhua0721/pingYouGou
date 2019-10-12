@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    swiperData:[]
+    swiperData:[],
+    catiData:[]
   },
 
   /**
@@ -20,6 +21,18 @@ Page({
 
         this.setData({
           swiperData: res.data.message
+        })
+      }
+    })
+
+    // 调用分类接口数据
+    wx.request({
+      url: 'https://www.ehomespace.com/api/public/v1/home/catidata',
+      success: (res) => {
+        console.log(res.data.message);
+
+        this.setData({
+          catiData: res.data.message
         })
       }
     })
