@@ -1,11 +1,11 @@
 /* components/search-bar/index.wxss */
 .search {
   background-color: #ff2d4a;
-  padding: 20px;
+  padding: 15px;
 }
 .search .search-item  {
   background-color: white;
-  padding: 6px;
+  padding: 5px;
   text-align: center;
 }
 .search .search-item icon {

@@ -5,14 +5,24 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    swiperData:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    //调用轮播器的接口数据
+    wx.request({
+      url: 'https://www.ehomespace.com/api/public/v1/home/swiperdata',
+      success:(res) => {
+        console.log(res.data.message);
 
+        this.setData({
+          swiperData: res.data.message
+        })
+      }
+    })
   },
 
   /**
