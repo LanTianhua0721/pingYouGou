@@ -63,3 +63,20 @@ swiper image{
 .floor .floor-item .floor-item-content navigator:nth-last-child(-n + 2){
   border-left: 10rpx solid white;
 }
+
+/* 回到顶部 */
+.toTop{
+  position: fixed;
+  bottom: 20rpx;
+  right: 20rpx;
+  border-radius: 50rpx;
+  background: rgb(0, 0, 0, 0.5);
+  width: 100rpx;
+  height: 100rpx;
+  text-align: center;
+}
+.toTop view{
+  height: 50rpx;
+  font-size: 16px;
+  color: white;
+}

@@ -38,3 +38,9 @@
     </view>
   </view>
 </view>
+
+<!-- 回到顶部 -->
+<view class="toTop">
+  <view>^</view>
+  <view>顶部</view>
+</view>
