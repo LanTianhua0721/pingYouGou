@@ -10,6 +10,7 @@ Page({
   data: {
     swiperData:[],
     catiData:[],
+    floorData:[],
     autoplay: true,
     duration: 2000,
     interval: 3000,
@@ -44,16 +45,29 @@ Page({
   //   })
 
     ZhenxinRequest('home/swiperdata').then(res=>{
-      console.log(res.data.message);
+      // 打印数据
+      //console.log(res.data.message);
+      
       this .setData({
         swiperData: res.data.message
       })
     })
 
     ZhenxinRequest('home/catitems').then(res => {
-      console.log(res.data.message);
+      // 打印数据
+      //console.log(res.data.message);
+
       this.setData({
         catiData: res.data.message
+      })
+    })
+
+    ZhenxinRequest('home/floordata').then(res => {
+      // 打印数据
+      //console.log(res.data.message);
+
+      this.setData({
+        floorData: res.data.message
       })
     })
   },

@@ -26,26 +26,14 @@
 
 <!-- 商品展示 -->
 <view class="floor">
-  <view class="floor-item">
+  <view class="floor-item" wx:key='{{index}}' wx:for='{{floorData}}'>
     <view class="floor-item-title">
-      <image src="https://www.ehomespace.com/pyg/pic_floor01_title.png"></image>
+      <image src="{{item.floor_title.image_src}}"></image>
     </view>
 
     <view class="floor-item-content">
-      <navigator>
-        <image src="https://www.ehomespace.com/pyg/pic_floor01_1@2x.png"></image>
-      </navigator>
-      <navigator>
-        <image src="https://www.ehomespace.com/pyg/pic_floor01_1@2x.png"></image>
-      </navigator>
-      <navigator>
-        <image src="https://www.ehomespace.com/pyg/pic_floor01_1@2x.png"></image>
-      </navigator>
-      <navigator>
-        <image src="https://www.ehomespace.com/pyg/pic_floor01_1@2x.png"></image>
-      </navigator>
-      <navigator>
-        <image src="https://www.ehomespace.com/pyg/pic_floor01_1@2x.png"></image>
+      <navigator wx:key='{{index}}' wx:for='{{item.product_list}}'>
+        <image src="{{item.image_src}}"></image>
       </navigator>
     </view>
   </view>
