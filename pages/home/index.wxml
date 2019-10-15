@@ -10,15 +10,43 @@
 <search-bar></search-bar>
 
 <!-- 轮播器设置 -->
-<swiper indicator-dots="ture">
-  <swiper-item wx:key='{{index}}' wx:for='{{swiperData}}' autoplay='{{autoplay}}' duration='{{duration}}' interval='{{interval}}'>
+<swiper indicator-dots="ture"  autoplay='{{autoplay}}' duration='{{duration}}' interval='{{interval}}'>
+  <swiper-item wx:key='{{index}}' wx:for='{{swiperData}}'>
     <image src = "{{item.image_src}}" >
     </image>
   </swiper-item>
 </swiper>
 
+<!-- 菜单布局 -->
 <view class="menu">
   <view wx:key='{{index}}' wx:for='{{catiData}}' class="menu-item">
     <image src="{{item.image_src}}"></image>
+  </view>
+</view>
+
+<!-- 商品展示 -->
+<view class="floor">
+  <view class="floor-item">
+    <view class="floor-item-title">
+      <image src="https://www.ehomespace.com/pyg/pic_floor01_title.png"></image>
+    </view>
+
+    <view class="floor-item-content">
+      <navigator>
+        <image src="https://www.ehomespace.com/pyg/pic_floor01_1@2x.png"></image>
+      </navigator>
+      <navigator>
+        <image src="https://www.ehomespace.com/pyg/pic_floor01_1@2x.png"></image>
+      </navigator>
+      <navigator>
+        <image src="https://www.ehomespace.com/pyg/pic_floor01_1@2x.png"></image>
+      </navigator>
+      <navigator>
+        <image src="https://www.ehomespace.com/pyg/pic_floor01_1@2x.png"></image>
+      </navigator>
+      <navigator>
+        <image src="https://www.ehomespace.com/pyg/pic_floor01_1@2x.png"></image>
+      </navigator>
+    </view>
   </view>
 </view>
