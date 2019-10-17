@@ -40,7 +40,7 @@
 </view>
 
 <!-- 回到顶部 -->
-<view class="toTop">
+<view class="toTop" bindtap="top" hidden="{{topFlag}}">
   <view>^</view>
   <view>顶部</view>
 </view>
