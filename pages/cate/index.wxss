@@ -1,1 +1,12 @@
 /* pages/cate/index.wxss */
+
+/* 分类样式 */
+.cate{
+  display: flex;
+}
+.cate .left{
+  width: 160rpx;
+}
+.cate .right{
+  flex: 2;
+}

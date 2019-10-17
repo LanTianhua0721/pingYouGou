@@ -1,10 +1,15 @@
 // pages/cate/index.js
+
+//调用
+import ZhenxinRequest from '../../utils/request.js';
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    cateData:[],
 
   },
 
@@ -12,6 +17,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    ZhenxinRequest('categories').then(res=>{
+      // 打印数据
+      console.log(res.data.message);
+
+      this .setData({
+        cateData: res.data.message
+      })
+    })
 
   },
 

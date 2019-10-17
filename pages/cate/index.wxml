@@ -1,3 +1,23 @@
 <!--pages/cate/index.wxml-->
 <!-- 顶部搜索设置 -->
 <search-bar></search-bar>
+
+<!-- 左侧菜单和右侧菜单分类 -->
+<view class="cate">
+  <view class="left">
+    <view>菜单</view>
+    <view>菜单</view>
+    <view>菜单</view>
+    <view>菜单</view>
+    <view>菜单</view>
+    <view>菜单</view>
+  </view>
+  <view class="right">
+    <view class="cateItem">CSTV</view>
+      <view class="content">
+        <navigator>
+          <image src="https://www.zhengzhicheng.cn/full/2fb113b32f7a2b161f5ee4096c319afedc3fd5a1.jpg"></image>
+        </navigator>
+      </view>
+  </view>
+</view>
