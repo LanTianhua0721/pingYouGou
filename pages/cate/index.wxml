@@ -5,19 +5,21 @@
 <!-- 左侧菜单和右侧菜单分类 -->
 <view class="cate">
   <view class="left">
-    <view>菜单</view>
-    <view>菜单</view>
-    <view>菜单</view>
-    <view>菜单</view>
-    <view>菜单</view>
-    <view>菜单</view>
+    <view class="menu">
+      <view wx:key='{{item}}' wx:for='{{leftData}}' bindtap="handleChange" data-id='{{item.id}}' class="{{item.id===currentId?'active':'item'}}">{{item.name}}</view>
+    </view>
   </view>
+
   <view class="right">
-    <view class="cateItem">CSTV</view>
-      <view class="content">
-        <navigator>
-          <image src="https://www.zhengzhicheng.cn/full/2fb113b32f7a2b161f5ee4096c319afedc3fd5a1.jpg"></image>
-        </navigator>
+    <view class="goods-item" wx:key="{{item.cat_id}}" wx:for='{{rightData}}'>
+      <view class="title">{{item.cat_name}}</view>
+        <view class="content">
+          <navigator wx:key='{{item.cat_id}}' wx:for='{{item.children}}'>
+            <image src="{{item.cat_icon}}"></image>
+            <view>{{item.cat_name}}</view>
+          </navigator>
+        </view>
       </view>
   </view>
+
 </view>

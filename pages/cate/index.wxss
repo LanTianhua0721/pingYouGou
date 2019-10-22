@@ -7,6 +7,29 @@
 .cate .left{
   width: 160rpx;
 }
+.cate .left .menu .item{
+  height: 80rpx;
+}
+.cate .left .menu .active{
+  height: 80rpx;
+  border-left: 15rpx solid red;
+}
 .cate .right{
   flex: 2;
+}
+.cate .right .goods-item .title{
+  font-size: 40rpx;
+  text-align: center;
+  color: red;
+}
+.cate .right .goods-item .content{
+  display: flex;
+  flex-wrap: wrap;
+}
+.cate .right .goods-item .content navigator{
+  width: 33.33%;
+}
+.cate .right .goods-item .content navigator image{
+  width: 60%;
+  height: 140rpx;
 }

@@ -9,21 +9,71 @@ Page({
    * 页面的初始数据
    */
   data: {
-    cateData:[],
-
+    allData:[],
+    leftData:[],
+    currentId:1,
+    rightData:[],
+    rightDataRaw:[],
+    zxCurrentId:[],
   },
+  // 菜单点击事件
+  handleChange:function(e){
+    // console.log(e.target.dataset.id);
+    // 改变当前id
+    // this.setData({
+    //   currentId: e.target.dataset.id,
+    // })
 
+    // 保存当前id
+    let zxCurrentId = e.target.dataset.id;
+    let data = this.data.allData;
+    // 点击获得右侧数据
+    let rightDataRaw = data.filter(item => {
+      // 过滤条件
+      return zxCurrentId === item.cat_id;
+    })
+    // 获得具体子数据
+    let zxRightData = rightDataRaw[0].children;
+    // 更新右侧数据
+    this.setData({
+      currentId: zxCurrentId,
+      rightData: zxRightData,
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // 获取分类数据
     ZhenxinRequest('categories').then(res=>{
-      // 打印数据
-      console.log(res.data.message);
+      // 获取全部数据
+      let data = res.data.message;
+      console.log(data);
+      // 获取左部数据
+      let leftData = data.map(item =>{
+        return {
+          id:item.cat_id,
+          name:item.cat_name,
+        }
+      });
+      // console.log(leftData);
 
+      // 获得右部数据
+      let rightDataRaw = data.filter(item=>{
+        // 过滤条件
+        return this.data.currentId === item.cat_id;
+      });
+      // console.log(rightDataRaw);
+
+      let rightData = rightDataRaw[0].children;
+      // console.log(rightData);
+
+      // 更新数据
       this .setData({
-        cateData: res.data.message
-      })
+        allData: res.data.message,
+        leftData: leftData,
+        rightData: rightData,
+      });
     })
 
   },
