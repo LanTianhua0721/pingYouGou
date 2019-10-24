@@ -1,8 +1,10 @@
 <!--components/search-bar/index.wxml-->
 
 <view class="search">
-  <view class="search-item">
-    <icon type="search"></icon>
-    搜索
-  </view>
+  <navigator url="/pages/search/index">
+    <view class="search-item">
+      <icon type="search"></icon>
+      搜索
+    </view>
+  </navigator>
 </view>
