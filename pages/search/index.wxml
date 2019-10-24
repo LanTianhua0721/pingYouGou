@@ -1,0 +1,12 @@
+<!--pages/search/index.wxml-->
+<view class="search">
+  <!-- 输入搜索框 -->
+  <view class="search-input">
+    <input bindinput="handleKeyword" value="{{keyword}}" placeholder="请输入要搜索的商品"></input>
+    <button wx:if="{{keyword}}" bindtap="handleCancel">取消</button>
+  </view>
+
+  <view class="search-list">
+    <navigator class="goods-item" wx:key='{{item.goods_id}}' wx:for='{{listData}}'>{{item.goods_name}}</navigator>
+  </view>
+</view>

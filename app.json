@@ -4,7 +4,8 @@
     "pages/cate/index",
     "pages/my/index",
     "pages/cart/index",
-    "components/search-bar/index"
+    "components/search-bar/index",
+    "pages/search/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
