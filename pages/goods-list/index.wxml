@@ -3,5 +3,5 @@
   <!-- 搜索条 -->
   <search-bar/>
   <!-- 选项卡 -->
-  <view></view>
+  <tabs tabData='{{zx}}'></tabs>
 </view>

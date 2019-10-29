@@ -6,7 +6,11 @@ Page({
    */
   data: {
     type: '',
+    currentIndex: 0,
+    zx: ['综合', '销量', '价格'],
   },
+
+  
 
   /**
    * 生命周期函数--监听页面加载
@@ -15,7 +19,12 @@ Page({
     console.log(options.query);
     this.setData({
       type: options.query
+    });
+    // 调整选项卡内容
+    this.setData({
+      tabData: ['1', '2', '3']
     })
+    
   },
 
   /**

@@ -1,0 +1,11 @@
+<!--components/tabs/index.wxml-->
+<view class="tabs">
+  <view class="tab-title">
+    <view wx:key='{{index}}' wx:for="{{tabData}}" bindtap="handleChange" data-index='{{index}}' class="{{index===currentIndex? 'active':'tab-item'}}">{{item}}</view>
+  </view>
+  <view class="tab-content">
+    <view wx:if="{{0===currentIndex}}">综合列表</view>
+    <view wx:if="{{1===currentIndex}}">销量列表</view>
+    <view wx:if="{{2===currentIndex}}">价格列表</view>
+  </view>
+</view>
