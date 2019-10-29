@@ -1,0 +1,7 @@
+<!--pages/goods-list/index.wxml-->
+<view class="goods-list">
+  <!-- 搜索条 -->
+  <search-bar/>
+  <!-- 选项卡 -->
+  <view></view>
+</view>

@@ -32,7 +32,7 @@
     </view>
 
     <view class="floor-item-content">
-      <navigator wx:key='{{index}}' wx:for='{{item.product_list}}'>
+      <navigator url="{{item.navigator_url}}" wx:key='{{index}}' wx:for='{{item.product_list}}'>
         <image src="{{item.image_src}}"></image>
       </navigator>
     </view>

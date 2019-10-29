@@ -1,5 +1,4 @@
 {
-  "navigationBarTitleText": "商品分类",
   "usingComponents": {
     "search-bar": "/components/search-bar/index"
   }
