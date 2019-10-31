@@ -1,29 +1,63 @@
 // pages/goods-list/index.js
+
+//调用
+import ZhenxinRequest from '../../utils/request.js';
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    holderPic:'https://ww1.sinaimg.cn/large/007rAy9hgy1g24by9t30j30i20i2glm.jpg',
     type: '',
-    currentIndex: 0,
+    nowIndex: 0,
     zx: ['综合', '销量', '价格'],
+    listData:[],
+    total: 0,
   },
+  // 定义参数
+  totalPage: 0,//主页码
+  paramData:{
+    query: '',
+    pagenum: 1,
+    pagesize: 10,
+  },
+  handleOutChange:function(e){
+    console.log("外部点击！");
+    console.log(e.detail);
 
-  
+    // 保存组件内部传递出来的
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     console.log(options.query);
+    // 将传递
     this.setData({
       type: options.query
     });
-    // 调整选项卡内容
-    this.setData({
-      tabData: ['1', '2', '3']
-    })
+    // 模拟从服务器获得数据，调整选项卡的内容
+    // this.setData({
+    //   zx: ['1~', '2~', '3~'],
+    // })
+
+    // 设置查询条件
+    this.paramData.query = this.data.type;
+
+    // 利用关键字 向服务器发送请求
+    ZhenxinRequest('goods/search', { query: this.data.type, pagenum: 1, pagesize: 10 }).then(res => {
+      console.log(res.data.message);
+      // 更新检索结果和关键字
+      this.setData({
+        listData: this.data.listData.concat(res.data.message.goods),
+        total: res.data.message.total,
+      });
+      // 计算主页码
+      this.totalPage = Math.ceil(this.data.total / this.data.pagesize);
+    });
     
   },
 
@@ -66,7 +100,24 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+    console.log("已触及底部");
+    if(this.paramData.pagenum >= this.totalPage){
+      wx.showToast({
+        title: '没有更多数据了...',
+      });
+    }
+    else{
+      this.paramData.pagenum++;
 
+      // 利用关键字 向服务器发送请求
+      ZhenxinRequest('goods/search', this.paramData).then(res => {
+        console.log(res.data.message);
+        // 更新检索结果和关键字
+        this.setData({
+          listData: this.data.listData.concat(res.data.message.goods),
+        });
+      });
+    }
   },
 
   /**

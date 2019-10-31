@@ -3,5 +3,20 @@
   <!-- 搜索条 -->
   <search-bar/>
   <!-- 选项卡 -->
-  <tabs tabData='{{zx}}'></tabs>
+  <tabs bindzxtap='handleOutChange' currentIndex='{{nowIndex}}' tabData='{{zx}}'>
+    <view class="list" wx:if="{{0===nowIndex}}">
+      <navigator wx:key="{{item.goods_id}}" wx:for="{{listData}}">
+        <view class="goods-img">
+          <image src="{{item.goods_small_logo?item.goods_small_logo:holderPic}}"></image>
+        </view>
+        <view class="goods-info">
+          <view class="goods-name">{{item.goods_name}}</view>
+          <view class="goods-price">￥{{item.goods_price}}</view>
+        </view>
+      </navigator>
+    </view>
+    <view wx:if="{{1===currentIndex}}">销量列表</view>
+    <view wx:if="{{2===currentIndex}}">价格列表</view>
+  </tabs>
 </view>
+

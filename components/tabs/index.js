@@ -28,11 +28,13 @@ Component({
   methods: {
     // 选项卡点击事件
     handleChange: function (e) {
+      // console.log('内部点击');
       // 保存当前currentIndex
       this.setData({
         currentIndex: e.target.dataset.index,
-      })
+      });
+      // 触发外部自定义事件（组件之间的通信）
+      this.triggerEvent('zxtap', e.target.dataset.index)
     },
-
   }
 })
