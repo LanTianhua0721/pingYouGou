@@ -5,7 +5,7 @@
   <!-- 选项卡 -->
   <tabs bindzxtap='handleOutChange' currentIndex='{{nowIndex}}' tabData='{{zx}}'>
     <view class="list" wx:if="{{0===nowIndex}}">
-      <navigator wx:key="{{item.goods_id}}" wx:for="{{listData}}">
+      <navigator url="/pages/goods-detail/index?goods_id={{item.goods_id}}" wx:key="{{item.goods_id}}" wx:for="{{listData}}">
         <view class="goods-img">
           <image src="{{item.goods_small_logo?item.goods_small_logo:holderPic}}"></image>
         </view>

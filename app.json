@@ -7,7 +7,8 @@
     "components/search-bar/index",
     "pages/search/index",
     "pages/goods-list/index",
-    "components/tabs/index"
+    "components/tabs/index",
+    "pages/goods-detail/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

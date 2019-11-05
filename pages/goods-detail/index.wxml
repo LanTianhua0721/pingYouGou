@@ -1,0 +1,19 @@
+<!--pages/goods-detail/index.wxml-->
+<!-- 顶部轮播图 -->
+<swiper indicator-dots  autoplay='{{autoplay}}' duration='{{duration}}' interval='{{interval}}'>
+  <swiper-item wx:key='{{item.pics_id}}' wx:for='{{info.pics}}'>
+    <image mode="aspectFill" src = "{{item.pics_big_url}}" ></image>
+  </swiper-item>
+</swiper>
+
+<!-- 商品的基本信息 -->
+<view class="detail-info">
+  <view class="price">￥{{info.goods_price}}</view>
+  <view class="name">{{info.goods_name}}</view>
+</view>
+
+<!-- 商品详情信息 -->
+<view class="goods-detail">
+  <view class="title">图文详情</view>
+  <rich-text nodes="{{info.goods_introduce}}"></rich-text>
+</view>

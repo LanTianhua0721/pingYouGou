@@ -58,6 +58,7 @@ Page({
    */
   loadData:function(){
     // 利用关键字 向服务器发送请求
+    // {query: this.data.type, pagenum: 1, pagesize: 10}
     ZhenxinRequest('goods/search', { query: this.data.type, pagenum: 1, pagesize: 10 }).then(res => {
       console.log(res.data.message);
       // 更新检索结果和关键字
