@@ -43,10 +43,20 @@ Page({
     // this.setData({
     //   zx: ['1~', '2~', '3~'],
     // })
+    // 初始化参数
+    this.paramData.pagenum=1;
+    this.paramData.pagesize=10;
 
     // 设置查询条件
     this.paramData.query = this.data.type;
 
+    this.loadData();
+  },
+
+  /**
+   * 加载数据通用方法封装
+   */
+  loadData:function(){
     // 利用关键字 向服务器发送请求
     ZhenxinRequest('goods/search', { query: this.data.type, pagenum: 1, pagesize: 10 }).then(res => {
       console.log(res.data.message);
@@ -55,10 +65,10 @@ Page({
         listData: this.data.listData.concat(res.data.message.goods),
         total: res.data.message.total,
       });
-      // 计算主页码
-      this.totalPage = Math.ceil(this.data.total / this.data.pagesize);
+      // 计算主页码  总条数 / 每页条数
+      //this.totalPage = Math.ceil(this.data.total / this.data.pagesize);
+      this.totalPage = Math.ceil(this.data.total / this.paramData.pagesize);
     });
-    
   },
 
   /**
@@ -108,15 +118,9 @@ Page({
     }
     else{
       this.paramData.pagenum++;
+      console.log(this.paramData);
 
-      // 利用关键字 向服务器发送请求
-      ZhenxinRequest('goods/search', this.paramData).then(res => {
-        console.log(res.data.message);
-        // 更新检索结果和关键字
-        this.setData({
-          listData: this.data.listData.concat(res.data.message.goods),
-        });
-      });
+      this.loadData();
     }
   },
 
