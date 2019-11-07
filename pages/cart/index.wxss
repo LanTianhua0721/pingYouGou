@@ -1,1 +1,15 @@
 /* pages/cart/index.wxss */
+
+/* 收货地址 */
+.cart-address{
+  padding: 20rpx;
+}
+.cart-address .address{
+  display: file;
+  flex-direction: column;
+}
+.cart-address .address .nameAddPhone{
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+}

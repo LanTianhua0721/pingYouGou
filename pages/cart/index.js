@@ -5,14 +5,42 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    address: null,
+    detailAddress: [],
+  },
+  /**
+   * 添加收获地址
+   */
+  handleAddress:function(){
+    wx.chooseAddress({
+      success:(res)=> {
+        // 把收货地址写入缓存
+        wx.setStorageSync('myAddress', res);
+        // 拼接详情地址
+        let detailAdd = `${res.provinceName}${res.cityName}${res.countyName}${res.detailInfo}`;
+        this.setData({
+          address: res,
+          detailAddress: detailAdd,
+        });
+        // 把详情地址写入缓存
+        wx.setStorageSync('detailAddress', detailAdd);
+      }
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // 加载地址
+    let address = wx.getStorageSync('myAddress');
+    let detailAddress = wx.getStorageSync('detailAddress');
+    if(address){
+      this.setData({
+        adddress: address,
+        detailAddress: detailAddress,
+      })
+    }
   },
 
   /**

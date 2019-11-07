@@ -1,2 +1,17 @@
 <!--pages/cart/index.wxml-->
 
+<view>
+ <!-- 收货地址 -->
+  <view class="cart-address">
+    <button bindtap="handleAddress">添加收货地址</button>
+    <view class="addrest">
+      <view>
+        <view class="name">收货人：{{address.userName}}</view>
+        <view class="phone">电话：{{address.telNumber}}</view> 
+      </view>
+      <view class="detailAddress">
+        详情地址：{{detailAddress}}
+      </view>
+    </view>
+  </view>
+</view>

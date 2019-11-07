@@ -39,10 +39,10 @@
     <!-- 右边 -->
     <view class="item">
       <view class="menu">
-        <view class="cart">加入购物车</view>
+        <view hidden="handleAddCart" class="cart">加入购物车</view>
       </view>
       <view class="menu">
-       <view class="buy">立即购买</view>
+       <view hidden="toBuy" class="buy">立即购买</view>
       </view>
     </view>
   </view>
