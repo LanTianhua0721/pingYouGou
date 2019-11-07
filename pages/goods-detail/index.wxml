@@ -1,19 +1,49 @@
 <!--pages/goods-detail/index.wxml-->
 <!-- 顶部轮播图 -->
-<swiper indicator-dots  autoplay='{{autoplay}}' duration='{{duration}}' interval='{{interval}}'>
-  <swiper-item wx:key='{{item.pics_id}}' wx:for='{{info.pics}}'>
-    <image mode="aspectFill" src = "{{item.pics_big_url}}" ></image>
-  </swiper-item>
-</swiper>
+<view class="detail">
+  <swiper indicator-dots  autoplay='{{autoplay}}' duration='{{duration}}' interval='{{interval}}'>
+    <swiper-item wx:key='{{item.pics_id}}' wx:for='{{info.pics}}'>
+      <image mode="aspectFill" src = "{{item.pics_big_url}}" ></image>
+    </swiper-item>
+  </swiper>
 
-<!-- 商品的基本信息 -->
-<view class="detail-info">
-  <view class="price">￥{{info.goods_price}}</view>
-  <view class="name">{{info.goods_name}}</view>
-</view>
+  <!-- 商品的基本信息 -->
+  <view class="detail-info">
+    <view class="price">￥{{info.goods_price}}</view>
+    <view class="name">{{info.goods_name}}</view>
+  </view>
 
-<!-- 商品详情信息 -->
-<view class="goods-detail">
-  <view class="title">图文详情</view>
-  <rich-text nodes="{{info.goods_introduce}}"></rich-text>
+  <!-- 商品详情信息 -->
+  <view class="goods-detail">
+    <view class="title">图文详情</view>
+    <rich-text nodes="{{info.goods_introduce}}"></rich-text>
+  </view>
+
+  <!-- 底部菜单 -->
+  <view class="detail-tool">
+    <!-- 左边 -->
+    <view class="item">
+      <view class="menu">
+        <icon type='search'></icon>
+        <view>联系卖家</view>
+      </view>
+      <view class="menu">
+        <icon type='search'></icon>
+        <view>分享</view>
+      </view>
+      <view class="menu">
+        <icon type='search'></icon>
+        <view>购物车</view>
+      </view>
+    </view>
+    <!-- 右边 -->
+    <view class="item">
+      <view class="menu">
+        <view class="cart">加入购物车</view>
+      </view>
+      <view class="menu">
+       <view class="buy">立即购买</view>
+      </view>
+    </view>
+  </view>
 </view>

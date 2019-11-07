@@ -8,7 +8,9 @@ swiper image{
 }
 /* 商品基本信息 */
 .detail-info{
+  /* border-top: solid 5rpx gray; */
   padding: 10rpx;
+  border-bottom: solid 5rpx #eee4e4;
 }
 .detail-info .price{
   color: red;
@@ -19,4 +21,47 @@ swiper image{
 }
 .detail-info .price{
   color: red;
+}
+
+/* 图文详情 */
+.detail .goods-dateil .title{
+  color: red;
+  padding: 20rpx;
+}
+
+/* 底部菜单 */
+.detail .detail-tool{
+  position: fixed;
+  width: 100%;
+  display: flex;
+  background-color: white;
+  left: 0;
+  bottom: 0;
+}
+.detail .detail-tool .item{
+  flex: 1;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+.detail .detail-tool .item .menu{
+  flex: 1;
+}
+.detail .detail-tool .item .menu icon{
+  font-size: 10rpx;
+}
+.detail .detail-tool .item .menu view{
+  font-size: 20rpx;
+}
+.detail .detail-tool .item .menu .cart{
+  background-color: #c07878;
+  font-size: 40rpx;
+  height: 84rpx;
+  line-height: 84rpx;
+}
+.detail .detail-tool .item .menu .buy{
+  background-color: #7677cc;
+  font-size: 40rpx;
+  height: 84rpx;
+  line-height: 84rpx;
 }
