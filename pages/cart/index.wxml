@@ -1,17 +1,60 @@
 <!--pages/cart/index.wxml-->
-
 <view>
- <!-- 收货地址 -->
+  <!-- 收货地址 -->
   <view class="cart-address">
     <button bindtap="handleAddress">添加收货地址</button>
-    <view class="addrest">
-      <view>
-        <view class="name">收货人：{{address.userName}}</view>
-        <view class="phone">电话：{{address.telNumber}}</view> 
+    <view class="address">
+      <view class="nameAddPhone">
+        <view class="name">收货人:{{address.userName}}</view>
+        <view class="phone">电话:{{address.telNumber}}</view>
       </view>
-      <view class="detailAddress">
-        详情地址：{{detailAddress}}
+
+      <view class="detailAddress">详细地址:{{detailAddress}}</view>
+    </view>
+  </view>
+
+  <!-- 购物车商品列表信息 -->
+  <view class="cart-list">
+    <view class="cart-title">购物车</view>
+    <view class="prod-list">
+      <view class="prod-item" wx:for='{{cartlist}}' wx:key='{{item.goods_id}}'>
+        <!-- 单个商品选中框 -->
+        <checkbox data-id='{{item.goods_id}}' bindtap="toggleItem" class="chk"></checkbox>
+
+        <!-- 缩略图 -->
+        <view class="image-wrap">
+          <image src="{{item.goods_small_logo}}"></image>
+        </view>
+
+        <!-- 商品信息 -->
+        <view class="prod-info">
+          <view class="name">{{item.goods_name}}</view>
+            <view class="desc">
+              <view class="price">￥{{item.goods_price}}</view>
+                <view class="num">
+                  <view class="btn">-</view>
+                  <view>1</view>
+                  <view class="btn">+</view>
+                </view>
+              </view>
+            </view>
+        </view>
+
+    </view>
+  </view>
+
+  <!-- 底部菜单 -->
+  <view class="cart-sun">
+    <label class="lab">
+      <checkbox class="chk"></checkbox>全选
+    </label>
+
+    <view class="right">
+      <view class="price-sun">
+        <view class="total">合计￥</view>
+        <view class="transport">包含运费</view>
       </view>
+      <view class="toPay">结算</view>
     </view>
   </view>
 </view>

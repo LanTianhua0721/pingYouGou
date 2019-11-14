@@ -4,12 +4,95 @@
 .cart-address{
   padding: 20rpx;
 }
+
 .cart-address .address{
-  display: file;
+  display: flex;
   flex-direction: column;
 }
+
 .cart-address .address .nameAddPhone{
   flex: 1;
   display: flex;
   justify-content: space-between;
+}
+
+/* 商品列表 */
+.cart-list .cart-title{
+  border-top: 5rpx solid #df3b3b;
+  border-bottom: 5rpx solid #df3b3b;
+  padding: 20rpx;
+  font-size: 20px;
+}
+
+.cart-list .prod-list .prod-item{
+  display: flex; 
+  height: 220rpx;
+  align-items: center;
+}
+
+.cart-list .prod-list .prod-item .chk{
+  width: 10%;
+}
+
+.cart-list .prod-list .prod-item .image-wrap{
+  width: 30%; 
+}
+
+.cart-list .prod-list .prod-item .image-wrap image{
+  height: 210rpx;
+  width: 90%; 
+}
+
+.cart-list .prod-list .prod-item .prod-info{
+  width: 60%; 
+}
+
+.cart-list .prod-list .prod-item .prod-info .desc{
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx;
+}
+
+.cart-list .prod-list .prod-item .prod-info .desc .price{
+  color: red;
+}
+
+.cart-list .prod-list .prod-item .prod-info .desc .num{
+  display: flex;
+}
+
+.cart-list .prod-list .prod-item .prod-info .desc .num .btn{
+  border: 2rpx solid black;
+  padding: 10rpx 30rpx;
+}
+
+.cart-list .prod-list .prod-item .prod-info .name{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:2;
+  overflow: hidden;
+  
+}
+
+/* 底部菜单 */
+.cart-sun{
+  display: flex;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  background-color: #b8a0cf;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+}
+
+.cart-sun .right{
+  display: flex;
+  align-items: center;
+}
+
+.cart-sun .right .toPay{
+  background-color: #db4f4f;
+  padding: 20rpx;
+  font-size: 20px;
 }

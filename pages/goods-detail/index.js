@@ -1,7 +1,5 @@
 // pages/goods-detail/index.js
-//调用
-import ZhenxinRequest from '../../utils/request.js';
-
+import ZhenxinRequest from '../../utils/request.js'
 Page({
 
   /**
@@ -9,27 +7,40 @@ Page({
    */
   data: {
     goodsId: '',
-    info: null,
-    autoplay: true,
-    duration: 2000,
-    interval: 3000,
-    topFlag: true,
+    info: null
+  },
+
+  /**
+   * 立即购买
+   */
+  toBuy: function () {
+    //执行一次 “加入购物车”
+    this.handleAddCart();
+    //跳转到购物车页面
+    wx.switchTab({
+      url: '/pages/cart/index',
+    })
   },
 
   /**
    * 加入购物车
    */
-  handleAddCart:function(){
-    // 添加到购物车 把商品信息加入本地缓存
-    // 首次 从本地缓存中查询数据 如果没找到 则创建空对象
-    let cart = wx.getStorageSync('mycart') || {};
-    // 把当前的商品信息写入指定对象
-    cart[this.data.goods_id] = this.data.info;
+  handleAddCart: function () {
+    //添加购物车: 把商品信息加入本地缓存
+    //首次 从本地缓存中查询数据，如果没有找到
+    let cart = wx.getStorageSync("mycart") || {};
 
-    // 把数据对象写会缓存
-    wx.getStorageSync('mycart', cart);
+    //把当前的商品信息写入指定对象 key value code
+    cart[this.data.info.goods_id] = this.data.info;
 
-    // 加入后提示成功
+    // 设置默认选中的属性和数量
+    cart[this.data.info.goods_id].checked = false;
+    cart[this.data.info.goods_id].num = 1;
+
+    //把数据对象写回缓存
+    wx.setStorageSync('mycart', cart);
+
+    //加入后提醒成功
     wx.showToast({
       title: '添加成功',
     })
@@ -39,26 +50,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // 打印参数
     console.log(options);
-    ZhenxinRequest('goods/detail', { goods_id: options.goods_id }).then(res => {
-      // 打印数据
+    this.setData({
+      goodsId: options.goods_id,
+    });
+    //根据商品ID获得相应的数据
+    ZhenxinRequest('goods/detail', { goods_id: this.data.goodsId }).then(res => {
       console.log(res.data.message);
-      // 保存获取的数据
+      //更新检索结果：保存商品的信息n                                                                                         
       this.setData({
-        info: res.data.message,
-      })
-    })
-  },
-  /**
-   * 立即购买
-   */
-  toBuy:function(){
-    // 执行一次加“入购物车”
-    this.handleAddCart();
-    // 跳转到购物车页面
-    wx.switchTab({
-      url: '/pages/cart/index',
+        info: res.data.message
+      });
     })
   },
 

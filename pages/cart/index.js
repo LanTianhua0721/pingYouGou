@@ -7,7 +7,18 @@ Page({
   data: {
     address: null,
     detailAddress: [],
+    cartlist: [],
   },
+  /**
+   * 单个商品的选中
+   */
+  toggleItem:function(){
+    // 获得商品ID
+    let goodsId = e.target.dataset.id;
+    // 从缓存中获取购物车对象
+    let cart = wx.getSt
+  },
+
   /**
    * 添加收获地址
    */
@@ -28,19 +39,49 @@ Page({
     })
   },
 
+
+  /**
+   * 
+   */
+  readAddress:function(){
+    let address = wx.getStorageSync('myAddress');
+    let detailAddress = wx.getStorageSync('detailAddress');
+    if (address) {
+      this.setData({
+        address: address,
+        detailAddress: detailAddress,
+      })
+    }
+  },
+  /**
+   *加载商品信息 
+   */
+  loadCartlist:function(){
+    // 从缓存中读取数据
+    let cart = wx.getStorageSync('mycart');
+    // 把对象转化为数组
+    let list = [];
+    for (let key in cart) {
+      let prod = cart[key];
+      list.push(prod);
+    }
+
+    //把数组存放到数据区
+    this.setData({
+      cartlist: list,
+    });
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // 加载地址
-    let address = wx.getStorageSync('myAddress');
-    let detailAddress = wx.getStorageSync('detailAddress');
-    if(address){
-      this.setData({
-        adddress: address,
-        detailAddress: detailAddress,
-      })
-    }
+    // 加载收获地址地址
+    this.readAddress();
+
+    // 加载商品信息
+    this.loadCartlist();
+
+    
   },
 
   /**
@@ -54,7 +95,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    // 加载商品信息
+    this.loadCartlist();
   },
 
   /**
